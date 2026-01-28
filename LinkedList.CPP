@@ -1,70 +1,84 @@
-#include<bits/stdc++.h>
-using namespace std ;
-struct node{
-	int data ;
-	node* next;
+#include <iostream>
+using namespace std;
+
+struct Node {
+    int data;
+    Node* next;
 };
-void printlist(node* head){
-	node* temp = head;
-	cout << "The Linked List: " ;
-	while(temp != nullptr){
-		cout << temp->data << " ";
-		temp = temp->next;
-	}
 
-	cout << "\n" ;
-}
-void insertatbegining(node*& head , int newData){
-	node* newNode = new node();
-	newNode->data = newData;
-	newNode->next = head;
-	head= newNode;
-}
-void insertatend(node*& head, int newData){
-	node* newNode = new node();
-	newNode->data = newData;
-	newNode->next= nullptr;
+// Function to print the linked list
+void printList(Node* head) {
+    Node* temp = head;
+    while (temp != nullptr) {
+        cout << temp->data << " -> ";
+        temp = temp->next;
+    }
+    cout << "NULL" << endl;
 }
 
-int main(){
-	node* head = nullptr;
-	int n;
-	int data;
-	int choice;
-	cout << "linked list menu : "<<"\n";
-	//cout<< "HOW MANY NODES DO YOU NEED IN LINKED LIST : ";
-	//cin >>n;
-	do{
-		cout << "\n1. Insert at Beginning\n";
-        cout << "2. Insert at End\n";
-        //cout << "3. Insert After a Specific Value\n";
-        cout << "3. Display List\n";
-        cout << "4. Exit\n";
-        //cout << "Enter your choice: ";
-        cin >> choice;
+// Insert at the beginning
+void insertAtBeginning(Node*& head, int newData) {
+    Node* newNode = new Node();
+    newNode->data = newData;
+    newNode->next = head;
+    head = newNode;
+}
 
-        switch(choice){
-        	case 1:
-        		cout <<"Enter the value to be added at begining : ";
-        		cin >> data;
-        		insertatbegining(head,data);
-        		break;
-        	case 2:
-        		cout <<"Enter the value to be added at end : ";
-        		cin >> data;
-        		insertatend(head,data);
-        		break;
-        	case 3:
-        		printlist(head);
-        		break;
-        	case 4:
-        		cout<<"Exiting program..........";
-        		break;
-        	default:
-        		cout<<"Invalid choice :( ";
-        		break;
-        }
-	 }while(choice!=4);
-	return 0;
+// Insert at the end
+void insertAtEnd(Node*& head, int newData) {
+    Node* newNode = new Node();
+    newNode->data = newData;
+    newNode->next = nullptr;
 
+    if (head == nullptr) {  // If list is empty
+        head = newNode;
+        return;
+    }
+
+    Node* temp = head;
+    while (temp->next != nullptr)
+        temp = temp->next;
+
+    temp->next = newNode;
+}
+
+// Insert after a specific node (by value)
+void insertAfter(Node* prevNode, int newData) {
+    if (prevNode == nullptr) {
+        cout << "Previous node cannot be NULL!" << endl;
+        return;
+    }
+
+    Node* newNode = new Node();
+    newNode->data = newData;
+    newNode->next = prevNode->next;
+    prevNode->next = newNode;
+}
+
+int main() {
+    Node* head = nullptr;
+
+    // Add elements
+    insertAtEnd(head, 10);
+    insertAtEnd(head, 20);
+    insertAtEnd(head, 30);
+    cout << "Initial list: ";
+    printList(head);
+
+    // Insert at beginning
+    insertAtBeginning(head, 5);
+    cout << "After inserting 5 at beginning: ";
+    printList(head);
+
+    // Insert after 20
+    insertAfter(head->next->next, 25); // head->next->next is node 20
+    cout << "After inserting 25 after 20: ";
+    printList(head);
+
+    // Insert at end
+    insertAtEnd(head, 40);
+    cout << "After inserting 40 at end: ";
+    printList(head);
+
+    return 0;
 }
