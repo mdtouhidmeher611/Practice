@@ -8,3 +8,4 @@ for i in range(1, n):
         a[i] += k * d
         moves += k
 print(moves)
+print(moves)
