@@ -6,7 +6,6 @@ struct Node {
     Node* next;
 };
 
-// Function to print the linked list
 void printList(Node* head) {
     Node* temp = head;
     while (temp != nullptr) {
@@ -16,7 +15,6 @@ void printList(Node* head) {
     cout << "NULL" << endl;
 }
 
-// Insert at the beginning
 void insertAtBeginning(Node*& head, int newData) {
     Node* newNode = new Node();
     newNode->data = newData;
@@ -24,13 +22,12 @@ void insertAtBeginning(Node*& head, int newData) {
     head = newNode;
 }
 
-// Insert at the end
 void insertAtEnd(Node*& head, int newData) {
     Node* newNode = new Node();
     newNode->data = newData;
     newNode->next = nullptr;
 
-    if (head == nullptr) {  // If list is empty
+    if (head == nullptr) {  
         head = newNode;
         return;
     }
@@ -42,7 +39,6 @@ void insertAtEnd(Node*& head, int newData) {
     temp->next = newNode;
 }
 
-// Insert after a specific node (by value)
 void insertAfter(Node* prevNode, int newData) {
     if (prevNode == nullptr) {
         cout << "Previous node cannot be NULL!" << endl;
@@ -58,24 +54,20 @@ void insertAfter(Node* prevNode, int newData) {
 int main() {
     Node* head = nullptr;
 
-    // Add elements
     insertAtEnd(head, 10);
     insertAtEnd(head, 20);
     insertAtEnd(head, 30);
     cout << "Initial list: ";
     printList(head);
 
-    // Insert at beginning
     insertAtBeginning(head, 5);
     cout << "After inserting 5 at beginning: ";
     printList(head);
 
-    // Insert after 20
-    insertAfter(head->next->next, 25); // head->next->next is node 20
+    insertAfter(head->next->next, 25); 
     cout << "After inserting 25 after 20: ";
     printList(head);
 
-    // Insert at end
     insertAtEnd(head, 40);
     cout << "After inserting 40 at end: ";
     printList(head);
