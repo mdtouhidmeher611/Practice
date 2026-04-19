@@ -2,10 +2,10 @@
 using namespace std;
 
 struct Node {
-    int data;
+    char data;
     Node* left;
     Node* right;
-    Node(int v) : data(v), left(NULL), right(NULL) {}
+    Node(char v) : data(v), left(NULL), right(NULL) {}
 };
 
 // Preorder: Root -> Left -> Right
@@ -44,7 +44,8 @@ Node* insertBST(Node* root, int key) {
 
 int main() {
     Node* root = NULL;
-    int n, value;
+    int n;
+    char value;
 
     cout << "How many nodes to insert? ";
     cin >> n;
