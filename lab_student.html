@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>JS Lab Exam — Student Template</title>
+  <style>
+    body { font-family: Arial, sans-serif; max-width: 600px; margin: 30px auto; }
+    .task { border: 1px solid #ccc; border-radius: 8px; padding: 16px; margin-bottom: 20px; }
+    .output { font-weight: bold; min-height: 24px; margin-top: 10px; padding: 4px; }
+    button { padding: 8px 14px; cursor: pointer; margin-right: 6px; }
+    h2 { color: #2b3a55; }
+  </style>
+</head>
+<body>
+
+  <h1>JavaScript Lab Exam</h1>
+  <p><b>Instructions:</b> Only edit the <code>// TODO</code> sections inside the
+     <code>&lt;script&gt;</code> tag. Do not change the HTML structure.</p>
+
+  <!-- ****** TASK 1: Click Counter ****** -->
+  <div class="task">
+    <h2>Task 1: Click Counter</h2>
+    <p>Counter value: <span id="countOutput">0</span></p>
+    <button onclick="increaseCounter()">Increase</button>
+    <button onclick="decreaseCounter()">Decrease</button>
+    <button onclick="resetCounter()">Reset</button>
+  </div>
+
+  <!-- ****** TASK 2: Text Case Converter ****** -->
+  <div class="task">
+    <h2>Task 2: Text Case Converter</h2>
+    <button onclick="convertCase()">Enter a word</button>
+    <p class="output" id="textOutput"></p>
+  </div>
+
+  <!-- ****** TASK 3: Traffic Light Simulator ****** -->
+  <div class="task">
+    <h2>Task 3: Traffic Light Simulator</h2>
+    <div id="light" style="width:80px; height:80px; border-radius:50%;
+         background-color:gray; border:3px solid #333; margin:10px 0;"></div>
+    <button onclick="nextLight()">Next Light</button>
+    <p class="output" id="lightOutput"></p>
+  </div>
+
+  <script>
+    /* =========================================================
+       TASK 1 — CLICK COUNTER  (Easy)
+       - Keep a number that starts at 0.
+       - Each click of "Increase" adds 1 and shows it in #countOutput.
+       - Each click of "Decrease" subtracts 1, but must NOT go below 0.
+       - "Reset" sets it back to 0.
+       - BONUS: when the count reaches 10 or more, make the
+         number turn red using .style.color
+       ========================================================= */
+    let count = 0;
+
+    function increaseCounter() {
+      // TODO: add 1 to count, then display it in #countOutput
+    }
+
+    function decreaseCounter() {
+      // TODO: subtract 1 from count (but do not go below 0), then display it
+    }
+
+    function resetCounter() {
+      // TODO: set count back to 0 and update the display
+    }
+
+
+    /* =========================================================
+       TASK 2 — TEXT CASE CONVERTER  (Medium)
+       - Use prompt() to ask the user for a word or name.
+       - Show ALL of the following in #textOutput, each on its own line:
+           the text in UPPERCASE
+           the text in lowercase
+           the text Capitalized  -> first letter UPPER, the rest lower
+           the Length (number of characters) of the text
+       - BONUS: if the text is longer than 5 characters, colour the
+         output blue, otherwise green, using
+         document.getElementById("textOutput").style.color
+       ========================================================= */
+    function convertCase() {
+      let text = prompt("Enter a word or name:");
+      // TODO: build the upper/lower/capitalized strings and show them
+    }
+
+
+    /* =========================================================
+       TASK 3 — TRAFFIC LIGHT SIMULATOR  (Harder)
+       - Each click of "Next Light" moves to the next light in the
+         cycle:  Red -> Yellow -> Green -> Red -> ...
+       - Change the CSS of #light using .style.backgroundColor.
+       - Show the matching instruction in #lightOutput:
+           Red    -> "STOP"
+           Yellow -> "GET READY"
+           Green  -> "GO"
+       - Use a counter variable and an if / else-if chain.
+         (Hint: counter % 3 keeps the value as 0, 1, or 2.)
+       - BONUS: add a matching glow with .style.boxShadow, e.g.
+         "0 0 20px red", and set #lightOutput text colour to match.
+       ========================================================= */
+    let lightStep = 0;
+
+    function nextLight() {
+      // TODO: advance lightStep, decide the colour with if/else-if,
+      //       update #light background and #lightOutput text
+    }
+  </script>
+
+</body>
+</html>
